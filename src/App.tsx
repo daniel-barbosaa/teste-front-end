@@ -1,5 +1,11 @@
+import Header from "./view/components/header";
+
 function App() {
-  return <div>Olá mundo</div>;
+  return (
+    <>
+      <Header />
+    </>
+  );
 }
 
 export default App;
