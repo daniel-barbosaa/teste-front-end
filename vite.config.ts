@@ -10,4 +10,14 @@ export default defineConfig({
       "@": path.resolve(__dirname, "src"),
     },
   },
+  server: {
+    // Proxy para contornar o CORS durante o desenvolvimento.
+    proxy: {
+      "/api": {
+        target: "https://app.econverse.com.br",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ""),
+      },
+    },
+  },
 });

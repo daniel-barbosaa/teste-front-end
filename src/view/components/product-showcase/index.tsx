@@ -1,3 +1,4 @@
+import type { Product } from "@/app/types/product";
 import ArrowIcon from "@/assets/icons/arrow.svg";
 import { useRef, useState } from "react";
 import type { Swiper as SwiperInstance } from "swiper";
@@ -9,6 +10,7 @@ import "./product-showcase.scss";
 interface ProductShowcaseProps {
   title?: string;
   viewAll?: boolean;
+  products: Product[];
 }
 
 const categoryItems = [
@@ -22,69 +24,14 @@ const categoryItems = [
 
 type CategoryType = (typeof categoryItems)[number];
 
-const products = [
-  {
-    image: "src/assets/smartphone.svg",
-    imageAlt: "Smartphone Samsung Galaxy",
-    description: "Smartphone Samsung Galaxy 256GB",
-    oldPrice: "R$ 2.499,90",
-    price: "R$ 1.899,90",
-    installments: "10x de R$ 189,99 sem juros",
-    shipping: "Frete grátis",
-  },
-  {
-    image: "src/assets/smartphone.svg",
-    imageAlt: "Smartphone Samsung Galaxy",
-    description: "Smartphone Samsung Galaxy 256GB",
-    oldPrice: "R$ 2.499,90",
-    price: "R$ 1.899,90",
-    installments: "10x de R$ 189,99 sem juros",
-    shipping: "Frete grátis",
-  },
-  {
-    image: "src/assets/smartphone.svg",
-    imageAlt: "Smartphone Samsung Galaxy",
-    description: "Smartphone Samsung Galaxy 256GB",
-    oldPrice: "R$ 2.499,90",
-    price: "R$ 1.899,90",
-    installments: "10x de R$ 189,99 sem juros",
-    shipping: "Frete grátis",
-  },
-  {
-    image: "src/assets/smartphone.svg",
-    imageAlt: "Fone de ouvido sem fio",
-    description: "Fone de Ouvido Bluetooth Premium",
-    oldPrice: "R$ 399,90",
-    price: "R$ 279,90",
-    installments: "6x de R$ 46,65 sem juros",
-    shipping: "Frete grátis",
-  },
-  {
-    image: "src/assets/smartphone.svg",
-    imageAlt: "Tablet com tela de alta resolução",
-    description: "Tablet 10 polegadas 128GB",
-    oldPrice: "R$ 1.599,90",
-    price: "R$ 1.299,90",
-    installments: "10x de R$ 129,99 sem juros",
-    shipping: "Frete grátis",
-  },
-  {
-    image: "src/assets/smartphone.svg",
-    imageAlt: "Notebook prata",
-    description: "Notebook Intel Core i5 512GB SSD",
-    oldPrice: "R$ 3.999,90",
-    price: "R$ 3.499,90",
-    installments: "10x de R$ 349,99 sem juros",
-    shipping: "Frete grátis",
-  },
-];
-
 export function ProductShowcase({
   title = "Produtos Relacionados",
   viewAll,
+  products,
 }: ProductShowcaseProps) {
   const [categoryActive, setCategoryActive] = useState<CategoryType>("Celular");
   const swiperRef = useRef<SwiperInstance | null>(null);
+
   return (
     <section className="product-showcase">
       <div className="showcase-heading">
@@ -148,8 +95,13 @@ export function ProductShowcase({
             }}
           >
             {products.map((product, index) => (
-              <SwiperSlide key={index}>
-                <ProductCard {...product} />
+              <SwiperSlide key={`${product.productName}-${index}`}>
+                <ProductCard
+                  image={product.photo}
+                  imageAlt={product.productName}
+                  description={product.descriptionShort}
+                  price={product.price}
+                />
               </SwiperSlide>
             ))}
           </Swiper>

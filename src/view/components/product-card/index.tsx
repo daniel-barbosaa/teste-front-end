@@ -4,21 +4,25 @@ interface ProductCardProps {
   image: string;
   imageAlt: string;
   description: string;
-  oldPrice: string;
-  price: string;
-  installments: string;
-  shipping: string;
+  price: number;
 }
 
 export function ProductCard({
   image,
   imageAlt,
   description,
-  oldPrice,
   price,
-  installments,
-  shipping,
 }: ProductCardProps) {
+  const formattedPrice = price.toLocaleString("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+  });
+
+  const formattedInstallment = (price / 10).toLocaleString("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+  });
+
   return (
     <article className="product-card">
       <img src={image} alt={imageAlt} />
@@ -26,13 +30,20 @@ export function ProductCard({
       <div className="card-info">
         <p className="product-description">{description}</p>
 
-        <del className="product-old-price">{oldPrice}</del>
+        <del className="product-old-price">
+          {(price + 1000).toLocaleString("pt-BR", {
+            style: "currency",
+            currency: "BRL",
+          })}
+        </del>
 
-        <p className="product-price">{price}</p>
+        <p className="product-price">{formattedPrice}</p>
 
-        <p className="product-installments">{installments}</p>
+        <p className="product-installments">
+          ou 10x de {formattedInstallment} sem juros
+        </p>
 
-        <p className="product-shipping">{shipping}</p>
+        <p className="product-shipping">Frete grátis</p>
 
         <button type="button" className="product-buy-button">
           Comprar
