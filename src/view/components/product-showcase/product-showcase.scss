@@ -132,68 +132,65 @@
   }
 }
 
-@media (max-width: vars.$breakpoint-mobile) {
-  .product-showcase {
-    .showcase-heading {
+.product-modal-content {
+  display: flex;
+  gap: 87px;
+  color: #3f3f40;
+  letter-spacing: 0.05em;
+
+  .product-modal-info {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    h2 {
+      font-size: 20px;
+      font-weight: 400;
+    }
+
+    .price {
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .description {
+      font-size: 10px;
+      font-weight: 500;
+    }
+
+    .view-more {
+      color: vars.$color-primary;
+      font-size: 11px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .btn-actions {
+      display: flex;
+      align-items: center;
       gap: 12px;
-      margin-bottom: 16px;
-      padding: 0 12px;
+      width: 100%;
+      height: 36px;
 
-      h2 {
-        font-size: 22px;
-      }
-    }
-
-    .showcase-categories {
-      margin-top: 16px;
-      border: none;
-      overflow-x: auto;
-      scrollbar-width: none;
-      -webkit-overflow-scrolling: touch;
-
-      &::-webkit-scrollbar {
-        display: none;
-      }
-
-      ul {
+      .add-btn {
         display: flex;
-        width: max-content;
-        min-width: 100%;
-        gap: 8px;
-        padding: 4px 12px 8px;
-        box-sizing: border-box;
+        align-items: center;
+        justify-content: center;
+        gap: 17px;
+        height: 36px;
+        padding: 0 8px;
+        font-size: 20px;
+        font-weight: 600;
+        border: 1px solid #d9d9d9;
+        border-radius: 6px;
       }
 
-      li {
-        border: none !important;
-      }
-
-      .category-button {
-        padding: 10px 16px;
-        border: 1px solid #dedede;
-        border-radius: 999px;
-        background: #f7f7f7;
-        color: #3b3b3b;
-        font-size: 12px;
-        font-weight: 500;
-        white-space: nowrap;
-        transition: background-color 0.2s ease;
-
-        &.active {
-          background: vars.$color-primary;
-          color: #fff;
-          font-weight: 700;
-        }
-      }
-    }
-
-    .product-carousel {
-      .product-carousel-viewport {
-        padding: 16px 12px;
-      }
-
-      .carousel-arrow {
-        display: none;
+      .btn-buy {
+        flex: 1;
+        height: 36px;
+        background: vars.$color-accent;
+        font-size: 14px;
+        font-weight: 700;
+        border-radius: 6px;
       }
     }
   }

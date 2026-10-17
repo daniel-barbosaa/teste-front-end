@@ -5,6 +5,7 @@ import type { Swiper as SwiperInstance } from "swiper";
 import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { ProductCard } from "../product-card";
+import { ProductDetailsModal } from "./product-modal";
 import "./product-showcase.scss";
 
 interface ProductShowcaseProps {
@@ -31,7 +32,9 @@ export function ProductShowcase({
 }: ProductShowcaseProps) {
   const [categoryActive, setCategoryActive] = useState<CategoryType>("Celular");
   const swiperRef = useRef<SwiperInstance | null>(null);
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
+  console.log(selectedProduct);
   return (
     <section className="product-showcase">
       <div className="showcase-heading">
@@ -101,6 +104,7 @@ export function ProductShowcase({
                   imageAlt={product.productName}
                   description={product.descriptionShort}
                   price={product.price}
+                  onBuy={() => setSelectedProduct(product)}
                 />
               </SwiperSlide>
             ))}
@@ -115,6 +119,11 @@ export function ProductShowcase({
         >
           <img src={ArrowIcon} alt="" />
         </button>
+
+        <ProductDetailsModal
+          product={selectedProduct}
+          onClose={() => setSelectedProduct(null)}
+        />
       </div>
     </section>
   );

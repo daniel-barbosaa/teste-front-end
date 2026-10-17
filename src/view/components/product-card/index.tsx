@@ -5,6 +5,7 @@ interface ProductCardProps {
   imageAlt: string;
   description: string;
   price: number;
+  onBuy: () => void;
 }
 
 export function ProductCard({
@@ -12,6 +13,7 @@ export function ProductCard({
   imageAlt,
   description,
   price,
+  onBuy,
 }: ProductCardProps) {
   const formattedPrice = price.toLocaleString("pt-BR", {
     style: "currency",
@@ -45,7 +47,7 @@ export function ProductCard({
 
         <p className="product-shipping">Frete grátis</p>
 
-        <button type="button" className="product-buy-button">
+        <button type="button" className="product-buy-button" onClick={onBuy}>
           Comprar
         </button>
       </div>
