@@ -10,3 +10,12 @@ body {
   font-family: "Poppins", sans-serif;
   background: vars.$color-background;
 }
+
+button {
+  font: inherit;
+  color: inherit;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+}

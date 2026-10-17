@@ -10,11 +10,11 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 16px;
-  gap: 5rem;
-
+  border-block: 1px solid #f0f0f0;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 5rem;
 }
 
 .benefits-container {
