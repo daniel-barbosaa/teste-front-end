@@ -1,6 +1,7 @@
 import { CategorySection } from "./view/components/categories";
 import { Header } from "./view/components/header";
 import { HeroSection } from "./view/components/hero-section";
+import { ProductShowcase } from "./view/components/product-showcase";
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <main>
         <HeroSection />
         <CategorySection />
+        <ProductShowcase />
       </main>
     </>
   );
