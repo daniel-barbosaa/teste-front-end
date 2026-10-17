@@ -1,0 +1,72 @@
+@use "@/styles/variables" as vars;
+
+.partner-section {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 13px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 40px auto;
+}
+
+.partner-card {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: 350px;
+  padding: 44px;
+  overflow: hidden;
+  box-sizing: border-box;
+  border-radius: 10px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #fff;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 85.04%);
+  }
+
+  .partner-card-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    max-width: 320px;
+  }
+
+  h2 {
+    font-size: 40px;
+  }
+
+  button {
+    margin-top: 32px;
+    padding: 12px 26px;
+    border-radius: 6px;
+    background: vars.$color-accent;
+    font-weight: 700;
+    color: #000;
+    text-transform: uppercase;
+  }
+}
+
+@media (max-width: vars.$breakpoint-mobile) {
+  .partner-section {
+    grid-template-columns: 1fr;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+
+  .partner-card {
+    min-height: 220px;
+    padding: 24px;
+
+    h2 {
+      font-size: 24px;
+    }
+  }
+}
