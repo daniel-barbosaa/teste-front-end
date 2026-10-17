@@ -1,15 +1,15 @@
 import HeartIcon from "@/assets/icons/Heart.svg";
 import SearchIcon from "@/assets/icons/MagnifyingGlass.svg";
+import CartIcon from "@/assets/icons/ShoppingCart.svg";
 import UserIcon from "@/assets/icons/UserCircle.svg";
 import BoxIcon from "@/assets/icons/Vector.svg";
-import CartIcon from "@/assets/icons/ShoppingCart.svg";
 import Logo from "@/assets/logo.svg";
 import { Input } from "../ui/input/input";
 import { AnnouncementBar } from "./announcementbar";
 
 import "./header.scss";
 
-export default function Header() {
+export function Header() {
   return (
     <header className="header-container">
       <AnnouncementBar />

@@ -1,4 +1,5 @@
-import Header from "./view/components/header";
+import { CategorySection } from "./view/components/categories";
+import { Header } from "./view/components/header";
 import { HeroSection } from "./view/components/hero-section";
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
       <Header />
       <main>
         <HeroSection />
+        <CategorySection />
       </main>
     </>
   );
