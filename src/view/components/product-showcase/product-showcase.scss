@@ -3,7 +3,7 @@
 .product-showcase {
   width: 100%;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 90px auto;
 
   .showcase-heading {
     display: flex;
@@ -200,6 +200,7 @@
 
 @media (max-width: vars.$breakpoint-mobile) {
   .product-showcase {
+    margin: 40px auto;
     .product-carousel {
       .product-carousel-viewport {
         width: 100%;
