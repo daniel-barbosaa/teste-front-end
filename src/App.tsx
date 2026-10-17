@@ -1,3 +1,4 @@
+import { BrandShowcase } from "./view/components/brand-showcase";
 import { CategorySection } from "./view/components/categories";
 import { Header } from "./view/components/header";
 import { HeroSection } from "./view/components/hero-section";
@@ -13,6 +14,10 @@ function App() {
         <CategorySection />
         <ProductShowcase />
         <PartnerSection />
+        <ProductShowcase viewAll />
+        <PartnerSection />
+        <BrandShowcase />
+        <ProductShowcase viewAll />
       </main>
     </>
   );

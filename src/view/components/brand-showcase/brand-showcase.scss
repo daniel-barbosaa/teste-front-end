@@ -1,0 +1,61 @@
+@use "@/styles/variables" as vars;
+
+.brand-showcase {
+  width: 100%;
+  max-width: 1200px;
+  margin: 40px auto;
+
+  h2 {
+    margin: 0 0 32px;
+    color: vars.$color-primary;
+    font-size: 30px;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  .brand-list {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 24px;
+    justify-items: center;
+  }
+
+  .brand-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 42px;
+    max-width: 211px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    box-shadow: 0px 7px 20px 0px #00000021;
+    padding: 47px;
+  }
+}
+
+@media (max-width: vars.$breakpoint-mobile) {
+  .brand-showcase {
+    padding: 0 16px;
+    box-sizing: border-box;
+    margin: 24px auto;
+
+    h2 {
+      font-size: 22px;
+    }
+
+    .brand-list {
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+    }
+
+    .brand-card {
+      grid-column: span 2;
+      width: 100%;
+      max-width: 100px;
+      padding: 20px;
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+}

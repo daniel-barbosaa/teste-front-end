@@ -8,6 +8,7 @@ import "./product-showcase.scss";
 
 interface ProductShowcaseProps {
   title?: string;
+  viewAll?: boolean;
 }
 
 const categoryItems = [
@@ -79,7 +80,8 @@ const products = [
 ];
 
 export function ProductShowcase({
-  title = "Produtos Selecionados",
+  title = "Produtos Relacionados",
+  viewAll,
 }: ProductShowcaseProps) {
   const [categoryActive, setCategoryActive] = useState<CategoryType>("Celular");
   const swiperRef = useRef<SwiperInstance | null>(null);
@@ -89,21 +91,30 @@ export function ProductShowcase({
         <h2>{title}</h2>
       </div>
 
-      <nav className="showcase-categories" aria-label="Categorias de produtos">
-        <ul>
-          {categoryItems.map((category) => (
-            <li key={category}>
-              <button
-                type="button"
-                className={`category-button ${categoryActive === category ? "active" : ""}`}
-                onClick={() => setCategoryActive(category)}
-              >
-                {category}
-              </button>
-            </li>
-          ))}
-        </ul>
-      </nav>
+      {viewAll && <p className="view">Ver todos</p>}
+
+      {!viewAll && (
+        <nav
+          className="showcase-categories"
+          aria-label="Categorias de produtos"
+        >
+          <ul>
+            {categoryItems.map((category) => (
+              <li key={category}>
+                <button
+                  type="button"
+                  className={`category-button ${
+                    categoryActive === category ? "active" : ""
+                  }`}
+                  onClick={() => setCategoryActive(category)}
+                >
+                  {category}
+                </button>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      )}
 
       <div className="product-carousel">
         <button

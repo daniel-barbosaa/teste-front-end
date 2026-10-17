@@ -23,10 +23,17 @@
     h2 {
       margin: 0;
       font-size: 30px;
-      font-weight: 600;
+      font-weight: 700;
       text-align: center;
       color: vars.$color-primary;
     }
+  }
+  .view {
+    margin: -10px;
+    font-size: 15px;
+    text-align: center;
+    font-weight: 700;
+    color: #3f3f40;
   }
 
   .showcase-categories {
@@ -154,6 +161,7 @@
         min-width: 100%;
         gap: 8px;
         padding: 4px 12px 8px;
+        box-sizing: border-box;
       }
 
       li {
