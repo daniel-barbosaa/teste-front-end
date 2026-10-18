@@ -94,16 +94,12 @@
 
   .header-content {
     flex-wrap: wrap;
-    gap: 16px;
-    padding: 16px;
-  }
-
-  .header-content > img {
-    max-width: 120px;
+    gap: 12px;
+    padding: 12px 16px;
   }
 
   .header-actions {
-    gap: 16px;
+    gap: 10px;
   }
 
   .search-container {

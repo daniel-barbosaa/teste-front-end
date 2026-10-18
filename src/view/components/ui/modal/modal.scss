@@ -1,3 +1,5 @@
+@use "@/styles/variables" as vars;
+
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -25,4 +27,15 @@
   right: 29px;
   color: #707070;
   font-size: 1.75rem;
+}
+
+@media (max-width: vars.$breakpoint-mobile) {
+  .modal-overlay {
+    padding: 16px;
+  }
+
+  .modal-content {
+    width: 100%;
+    padding: 48px 20px 20px;
+  }
 }

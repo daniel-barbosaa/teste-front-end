@@ -82,18 +82,13 @@ export function ProductShowcase({
               swiperRef.current = swiper;
             }}
             slidesPerView={1}
-            spaceBetween={10}
+            spaceBetween={18}
             pagination={{
               clickable: true,
             }}
             breakpoints={{
-              768: {
-                slidesPerView: 1,
-                spaceBetween: 40,
-              },
               1024: {
                 slidesPerView: 4,
-                spaceBetween: 50,
               },
             }}
           >
